@@ -37,7 +37,7 @@ class Game
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    #[ORM\ManyToMany(targetEntity: category::class, inversedBy: 'games')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'games')]
     private Collection $categories;
 
     public function __construct()
