@@ -10,16 +10,21 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Game;
 use App\Form\GameType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use App\Repository\GameRepository;
+
 
 
 
 class GameController extends AbstractController
 {
     #[Route('/game', name: 'app_game')]
-    public function index(): Response
+    public function index(GameRepository $repo): Response
     {
+        $games = $repo->findAll();
+        dump($games);
         return $this->render('game/index.html.twig', [
             'controller_name' => 'GameController',
+            'games'=> $games
         ]);
     }
 
