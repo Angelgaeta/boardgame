@@ -49,4 +49,10 @@ class GameController extends AbstractController
             'form' => $form
         ]);
     }
+    #[Route('/game/{id}', name: 'app_show_game')]
+    public function show(): Response{
+        return $this->render('game/show.html.twig', [
+        
+        ]);
+    }
 }

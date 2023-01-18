@@ -23,11 +23,10 @@
         <div class="card" style="width: 18rem; background-color:smoke; margin-left: 20px">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-            <h4 class="card-title" style="font-weight: bold; margin-bottom: 20px">{{ game.title }}</h4>
-            <p class="card-text"><b>Description: </b>{{ game.description|slice(0,20)~'...'  }}</p>
-            <p class="card-text"><b>Joueur: </b>{{ game.players}}</p>
-            <p class="card-text"><b>Temps: </b>{{ game.time}}min</p>
-            <a href="#" class="btn btn-primary">Consulter</a>
+            <h4 class="card-title" style="font-weight: bold; margin-bottom: 30px">{{ game.title }}</h4>
+            <p class="card-text"><b>Description: </b>{{ game.description|slice(0,70)~'...'  }}</p>
+
+            <a href="{{path(app_show_game), {id: game.id})}}" class="btn btn-primary">Voir plus</a>
         </div>
     </div>
         {% endfor %}
