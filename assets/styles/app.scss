@@ -1,0 +1,22 @@
+
+
+@mixin bgcolor {
+    background-color: white;
+    color: white;
+}
+
+body {
+    @include bgcolor
+}
+
+.heart{
+    color: red !important;
+}
+
+.iconheart{
+    color: gray;
+}
+
+a.iconheart:hover{
+    color: red;
+}
