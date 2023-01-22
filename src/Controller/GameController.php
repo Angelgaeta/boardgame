@@ -32,7 +32,9 @@ class GameController extends AbstractController
     public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $em = $doctrine->getManager();
+        
         $newgame = new Game;
+
         $form = $this->createForm(GameType::class, $newgame)
             ->add('enregister', SubmitType::class);
 
