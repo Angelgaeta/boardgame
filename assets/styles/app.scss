@@ -1,12 +1,23 @@
 
-
 @mixin bgcolor {
-    background-color: white;
-    color: white;
+    background-color: #f1e6e6;
+    color: rgb(0, 0, 0);
 }
 
-body {
+@mixin bgcolor2 {
+    background-color: white;
+}
+
+body.bodybg{
     @include bgcolor
+}
+
+header.flex{
+    @include bgcolor2
+}
+
+footer.flex{
+    @include bgcolor2
 }
 
 .heart{
