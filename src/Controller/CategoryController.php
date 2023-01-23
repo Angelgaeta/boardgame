@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -40,6 +41,15 @@ class CategoryController extends AbstractController
         return $this->render('category/add.html.twig', [
             'controller_name' => 'CategoryController',
             'form' => $form
+        ]);
+    }
+
+    #[Route('/category/{id}', name: 'app_show_category')]
+    public function show(CategoryRepository $repo, $id) : Response
+    {
+        $category = $repo->find($id); 
+        return $this->render('category/show.html.twig', [
+            'cat' => $category
         ]);
     }
 }

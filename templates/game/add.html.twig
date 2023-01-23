@@ -3,24 +3,49 @@
 {% block title %}Hello CategoryController!{% endblock %}
 
 {% block body %}
-<h1> Ajouter un jeu </h1>
-    {{ form(form) }}
-{% endblock %}
+    {# {{ form(form) }} #}
 
-{{ form_row(form.title, {
+{# {{ form_row(form.title, {
     row_class: 'w-full max-w-lg',
     label_class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2',
     error_item_class: 'text-red-700',
     widget_class: 'border border-gray-200 bg-gray-50',
     widget_disabled_class: 'border-dashed text-gray-200',
     widget_errors_class: 'border-double border-red-500 bg-red-50',
-}) }}
+}) }} #}
 
+  {{ form_start(form) }}
+  
+
+   <div class="w-full max-w-lg mx-5">
+   <h1> Ajouter un jeu </h1><br>
+
+    <div class="rowflex flex-wrap  mb-6">
+        <div class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 " for="grid-first-name">
+            {{ form_label(form.title, "Titre") }}
+        </div> 
+        {# {{ form_label(form.title, ) }}  #}
+        
+        {{ form_widget(form.title, { 'attr': {'class': 'appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'} }) }}
+
+        <div class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 " for="grid-first-name">
+        {{ form_label(form.title, "Joueurs") }}
+        
+        </div> 
+        {# {{ form_label(form.title, ) }}  #}
+        
+
+    </div>
+  </div>
+
+
+{# 
     <form class="w-full max-w-lg">
 
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+          {{ form_widget(form.title) }}
           </label>
           
           <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">
@@ -71,8 +96,9 @@
           <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210">
         </div>
       </div>
-
-    </form>
+    </form> #}
+    {{ form_end(form) }}
+{% endblock %}
 
 
 
