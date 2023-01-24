@@ -43,9 +43,13 @@ class Game
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'games')]
+    private Collection $users;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function __toString()
@@ -174,6 +178,33 @@ class Game
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeGame($this);
+        }
 
         return $this;
     }
