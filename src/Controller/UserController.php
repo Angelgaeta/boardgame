@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,7 +14,8 @@ class UserController extends AbstractController
     public function index(): Response
     {
         return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+            EmailField::new('email'),
+            ArrayField::new('roles')
         ]);
     }
 }
