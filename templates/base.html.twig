@@ -24,7 +24,7 @@
         {% endblock %}
     </head>
     <body class="bodybg">
-    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6" style="box-shadow: 1px 1px 12px 
+    {# <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6" style="box-shadow: 1px 1px 12px 
 #555;">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
      <a href="{{ path('app_game')}}"><svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg></a>
@@ -56,8 +56,86 @@
           </div>
       
   </div>
-</nav>
-        {% block body %}{% endblock %}
-        
+  
+</nav> #}
+	<div x-data="{show : false}" class="flex flex h-screen absolute">
+
+    <nav @mouseover="show = true" @mouseout="show = false" class="flex flex-col h-full justify-between space-y-4 px-2 py-6 bg-gray-800 text-gray-100 lg:fixed z-50 text-sm" style="position:fixed">
+    <div class="flex justify-center items-center font-bold space-x-2" :class="{'bg-blue-100 text-blue-500 px-1 py-0.5 rounded': show}">
+      <i class="fa fa-bullseye text-blue-500"></i>
+      <span x-show="show">ESPRIT JEU</span>
+    </div>
+    <div class="flex flex-1 flex-col space-y-2" :class="{'items-center' : !show}">
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-home"></i>
+        <span x-show="show">Dashboard</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-home"></i>
+        <span x-show="show">Accueil</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-laptop"></i>
+        <span x-show="show">Actualités</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-table"></i>
+        <span x-show="show">Par âge</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-list"></i>
+        <span x-show="show">Par thème</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-folder-open"></i>
+        <span x-show="show">Favoris</span>
+      </span>
+      {# <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-font"></i>
+        <span x-show="show">Quotes</span>
+      </span> #}
+
+      {# <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-map"></i>
+        <span x-show="show">Maps</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-map-marker"></i>
+        <span x-show="show">Locations</span>
+      </span> #}
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-info"></i>
+        <span x-show="show">Conseils</span>
+      </span>
+    </div>
+
+    <div class="flex flex-col space-y-2" :class="{'items-center' : !show}">
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-user"></i>
+        <span x-show="show">Profil</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-cog"></i>
+        <span x-show="show">Paramètres</span>
+      </span>
+      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+        <i class="fa fa-power-off"></i>
+        <span x-show="show">Connexion</span>
+      </span>
+    </div>
+
+  </nav>
+
+  {# <main class="flex flex-1 flex-shrink-0 px-2 justify-center items-center text-gray-500 bg-gray-50 space-y-2">
+    <pre class="p-4 bg-black text-gray-100 rounded">
+
+</pre>
+  </main> #}
+
+</div>
+        {% block body %}
+        {% endblock %}
+        <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js'></script>
     </body>
 </html>
