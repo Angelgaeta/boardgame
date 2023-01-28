@@ -3,13 +3,20 @@
 {% block title %} {% endblock %}
 
 {% block body %} 
+
+    {# <h1>{{games.title}}</h1>
+    <div>
+        {% for cat in games.categories %}
+            <span>{{cat.name}}</span> #}
+
+
 <h1>{{games.title}}</h1>
 <div>
      <p><b>Description:</b> {{games.description}}</p>
      <p><b>Nombre de joueurs: </b> {{games.players}}</p>
      <p><b>Âge minimum: </b> {{games.age}}</p>
      <p><b>Temps d'une partie: </b> {{games.time}} min</p>
-     <p><b>Date de sortie: </b> {{games.released}}</p>
+     {# <p><b>Date de sortie: </b> {{games.released}}</p> #}
      {% for cat in games.categories %}
           <span>{{ cat.name }}</span>
      {% endfor %}
