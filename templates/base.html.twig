@@ -23,41 +23,55 @@
             {# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> #}
         {% endblock %}
     </head>
-    <body>
-    {# <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6" style="box-shadow: 1px 1px 12px 
-#555;">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
-     <a href="{{ path('app_game')}}"><svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg></a>
-    <span class="font-semibold text-xl tracking-tight">Esprit Jeu</span>
-  </div>
-  <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-    </button>
-  </div>
-  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div class="text-sm lg:flex-grow">
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        JEUX D'AMBIANCES
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        JEUX DE STRATÉGIE
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-        JEUX JUNIORS
-      </a>
+
+
+    <nav class="fixed top-0 left-0 z-20 w-full border-b border-gray-200 bg-white py-2.5 px-6 sm:px-4">
+  <div class="container mx-auto flex max-w-6xl flex-wrap items-center justify-between">
+    <a href="#" class="flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-3 h-6 text-blue-500 sm:h-9">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+      </svg>
+
+      <span class="self-center whitespace-nowrap text-xl font-semibold">EspriJeu</span>
+    </a>
+    <div class="mt-2 sm:mt-0 sm:flex md:order-2">
+      <!-- Login Button -->
+      <button type="button" class="rounde mr-3 hidden border border-blue-700 py-1.5 px-6 text-center text-sm font-medium text-blue-700 focus:outline-none focus:ring-4 focus:ring-blsue-300 md:inline-block rounded-lg">Login</button>
+      <button type="button" class="rounde mr-3 hidden bg-blue-700 py-1.5 px-6 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 md:mr-0 md:inline-block rounded-lg">Register</button>
+      <!-- Register Button -->
+      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
     </div>
-    <div>
-      {% if app.user %}
-            <a href="{{ path('app_logout')}}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">LOGOUT</a>
-      {% else %}
-            <a href="{{ path('app_login')}}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">LOGIN</a>
-      {% endif %}
-          </div>
-      
+    <div class="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto" id="navbar-sticky">
+      <ul class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium">
+        <li>
+          <a href="{{ path('app_game')}}" class="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white md:bg-transparent md:p-0 md:text-blue-700" aria-current="page">Accueil</a>
+        </li>
+        <li>
+          <a href="#" class="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">About</a>
+        </li>
+        <li>
+          <a href="#" class="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">Services</a>
+        </li>
+        <li>
+          <a href="#" class="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">Contact</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  
-</nav> #}
+</nav>
+    
+        {% block body %}
+        {% endblock %}
+        <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js'></script>
+    </body>
+</html>
+
+
+{# <body>
 	<div x-data="{show : false}" class="flex flex h-screen absolute">
 
     <nav @mouseover="show = true" @mouseout="show = false" class="flex flex-col h-full justify-between space-y-4 px-2 py-6 bg-gray-800 text-gray-100 lg:fixed z-50 text-sm" style="position:fixed">
@@ -99,7 +113,7 @@
         <i class="fa fa-map-marker"></i>
         <span x-show="show">Locations</span>
       </span> #}
-      <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
+      {# <span class="space-x-2 px-2 py-1 rounded hover:bg-blue-500 hover:text-blue-100 cursor-pointer">
         <i class="fa fa-info"></i>
         <span x-show="show">Conseils</span>
       </span>
@@ -123,7 +137,7 @@
       </span>
     </div>
 
-  </nav>
+  </nav> #}
 
   {# <main class="flex flex-1 flex-shrink-0 px-2 justify-center items-center text-gray-500 bg-gray-50 space-y-2">
     <pre class="p-4 bg-black text-gray-100 rounded">
@@ -131,10 +145,4 @@
 </pre>
   </main> #}
 
-</div>
-        {% block body %}
-        {% endblock %}
-        <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js'></script>
-    </body>
-</html>
+{# </div>  #}
