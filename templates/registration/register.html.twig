@@ -1,41 +1,93 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %} Enregistrer{% endblock %}
 
-{# {% block body %}
+{% block body %}
     <h1>Register</h1>
+  <div class="bg-gray-100 text-gray-900">
+    <div class="mt-10 p-8 max-w-md mx-auto">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+      {{ form_start(registrationForm, { 'attr': {'class': 'mt-10 p-8 max-w-md mx-auto"'} }) }}
+          <h1 class="text-xl font-bold mb-6">Enregistrer mon compte</h1>
+          {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': ''}}) }}
+          {{ form_widget(registrationForm.email, { 'attr': {'class': 'placeholder-gray-700 w-full border border-gray-400 py-2 px-2 rounded focus:outline-none focus:shadow-outline"'} }) }}
+          {{ form_label(registrationForm.plainPassword, 'Mot de Passe', {'label_attr': {'class': ''}}) }}
+          {{ form_widget(registrationForm.plainPassword,  { 'attr': {'class': 'placeholder-gray-700 w-full border border-gray-400 py-2 px-2 rounded focus:outline-none focus:shadow-outline"'} }) }} 
+          {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'mt-10 p-8 max-w-md mx-auto"'} }) }}
+          <div>
+            <button type="submit" class="w-full transition duration-200 ease-in-out mt-2 mb-6 px-5 py-3 rounded bg-teal-600 text-white shadow hover:bg-teal-700 focus:outline-none focus:shadow-outline">S'enregistrer</button>
+          </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %} #}
+      {{ form_end(registrationForm) }}
+    </div>
+  </div>
+{% endblock %}
+
+
+{# 
+
+<div class="bg-gray-100 text-gray-900">
+  <div class="mt-10 p-8 max-w-md mx-auto">
+
+    <form action="{{ path('app_login') }}" method="post" class="bg-white rounded-lg shadow-lg p-8">
+
+      <h1 class="text-xl font-bold mb-6">Se connecter à mon compte</h1>
+
+      <div class="mb-4">
+        <label for="username" class="block mb-1">Email</label>
+        <input placeholder="Enter your user name" id="username" type="text" name="_username" class="placeholder-gray-700 w-full border border-gray-400 py-2 px-2 rounded focus:outline-none focus:shadow-outline" value="{{ last_username }}">
+        <!--                 <input placeholder="Enter your user name" id="username" type="text" name="username" class="placeholder-gray-700 w-full border border-red-500 py-2 px-2 rounded focus:outline-none focus:shadow-outline">
+        <div class="text-sm text-red-500 mt-1">Please enter a valid username</div> -->
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="block mb-1">Mot de passe</label>
+        <input placeholder="Enter your password" id="password" type="password" name="_password" class="placeholder-gray-700 w-full border border-gray-400 py-2 px-2 rounded focus:outline-none focus:shadow-outline">
+      </div>
+
+      <div>
+        <button class="w-full transition duration-200 ease-in-out mt-2 mb-6 px-5 py-3 rounded bg-teal-600 text-white shadow hover:bg-teal-700 focus:outline-none focus:shadow-outline">Se connecter</button>
+      </div>
+
+      <a href="{{ path('app_register')}}" class="inline-block mr-4 text-blue-500 hover:underline hover:text-blue-700">S'inscrire</a>
+      <a href="#" class="inline-block mr-4 text-blue-500 hover:underline hover:text-blue-700">Renouveller le mot de passe</a>
+    </form>
+
+  </div>
+</div> #}
+
+
+
+
+
+
+
+
+
+
+
+
 
 {# {% block body %} #}
     {# {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %} #}
 
-{% block body %}
+{# {% block body %} #}
 
-<div class="bg-gray-100 text-gray-900">
+{# <div class="bg-gray-100 text-gray-900">
+{{ form_start(registrationForm) }}
   <div class="mt-10 p-8 max-w-md mx-auto">
-
-    <form action="{{ form_start(registrationForm) }}" method="post" class="bg-white rounded-lg shadow-lg p-8">
+    <form action="" method="post" class="bg-white rounded-lg shadow-lg p-8">
 
       <h1 class="text-xl font-bold mb-6">S'inscrire</h1>
 
       <div class="mb-4">
         <label for="email" class="block mb-1">Email</label>
-        <input placeholder="Enter your user mail" id="username" type="text" name="_email" class="placeholder-gray-700 w-full border border-gray-400 py-2 px-2 rounded focus:outline-none focus:shadow-outline" value="{{ form_row(registrationForm.email)}}">
-        <!--                 <input placeholder="Enter your user name" id="username" type="text" name="username" class="placeholder-gray-700 w-full border border-red-500 py-2 px-2 rounded focus:outline-none focus:shadow-outline">
-        <div class="text-sm text-red-500 mt-1">Please enter a valid username</div> -->
-      </div>
+        <input placeholder="Enter your user mail" id="username" type="text" name="_email" class="placeholder-gray-700 w-full border border-gray-400 py-2 px-2 rounded focus:outline-none focus:shadow-outline" value="{{ form_row(registrationForm.email)}}"> #}
+        {# <input placeholder="Enter your user name" id="username" type="text" name="username" class="placeholder-gray-700 w-full border border-red-500 py-2 px-2 rounded focus:outline-none focus:shadow-outline">
+        <div class="text-sm text-red-500 mt-1">Please enter a valid username</div> #}
+      {# </div>
 
       <div class="mb-4">
         <label for="password" class="block mb-1">Mot de passe</label>
@@ -56,6 +108,6 @@
     </form>
 
   </div>
-</div>
+</div> #}
 
-{% endblock %}
+{# {% endblock %} #}
